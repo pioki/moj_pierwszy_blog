@@ -1,16 +1,15 @@
 {% extends 'blog/bazowy.html' %}
 
 {% block content %}
-    {% for wpis in wpisy %}
     <article class="wpis">
+       {% if wpis.data_opublikowania %}
         <time class="date">
         {{ wpis.data_opublikowania }}
         </time>
-        <h2><a href="{% url 'szczegoly_wpisu' pk=wpis.pk %}">
+       {% endif %}
+        <h2>
             {{ wpis.tytul }}
-            </a>
         </h2>
         <p>{{ wpis.tekst|linebreaksbr }}</p>
     </article>
-    {% endfor %}
 {% endblock %}
